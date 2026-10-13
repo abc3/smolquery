@@ -22,7 +22,7 @@ The pipeline runs in this order:
    workflows gate the merge. Branch protection keeps the pull request
    current with `main`. Thus CI already saw the merged tree.
 2. The Release workflow runs on the merge push to `main`. It publishes a
-   multi-architecture `ghcr.io/chasers/smolquery` image tagged with the
+   multi-architecture `ghcr.io/smolquery/smolquery` image tagged with the
    commit (`sha-<commit>`).
    It then dispatches a [bench-matrix](benchmarks.md#continuous-benchmarks)
    run for that commit.
@@ -128,6 +128,10 @@ answers nothing at the TCP level.
 ## Upgrade notes
 
 One note per release, newest first.
+
+### The repository and image move to the `smolquery` organization
+
+The repository is now `github.com/smolquery/smolquery`; the old URL redirects. Releases after 0.22.0 publish `ghcr.io/smolquery/smolquery`. 0.22.0 and earlier stay at `ghcr.io/chasers/smolquery`, so pinned deployments keep pulling. Point new deployments, and any image automation, at the new name.
 
 ### Ready for DuckDB 2.0, still on 1.5.3 (T-652 to T-656)
 
